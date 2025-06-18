@@ -1,0 +1,5 @@
+flask           # Web server framework to create API endpoints
+flask-cors      # Allows frontend from a different domain (e.g., React) to call backend
+openai          # SDK to access OpenAI GPT-4 or GPT-3.5
+python-dotenv   # Loads your `.env` file into environment variables
+PyMuPDF         # Library to extract text 
