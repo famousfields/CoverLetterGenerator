@@ -92,7 +92,7 @@ export default function CoverLetterForm() {
       {response && (
         <div className="mt-6">
           <h2 className="text-xl font-semibold mb-2">Generated Cover Letter</h2>
-          <div className="p-4 border rounded whitespace-pre-wrap bg-gray-50">
+          <div className="p-4 border rounded whitespace-pre-wrap bg-gray-50 text-black">
             {response}
           </div>
         </div>
