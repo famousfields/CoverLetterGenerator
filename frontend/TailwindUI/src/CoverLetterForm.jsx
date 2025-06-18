@@ -25,7 +25,7 @@ export default function CoverLetterForm() {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/generate", formData, {
+      const res = await axios.post("https://coverlettergenerator-io59.onrender.com/generate", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -46,12 +46,21 @@ export default function CoverLetterForm() {
         <div>
           <label className="block font-medium mb-1">Upload Resume (PDF or DOCX)</label>
          <div>
-        <label
+       <div>
+          <label
             htmlFor="resume-upload"
             className="inline-block px-4 py-2 border rounded-md border-gray-300 cursor-pointer hover:bg-gray-100"
-        >
-            Choose File
-        </label>
+          >
+            {resumeFile ? resumeFile.name : "Choose File"}
+          </label>
+          <input
+            id="resume-upload"
+            type="file"
+            accept=".pdf,.doc,.docx"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+      </div>
         <input
             id="resume-upload"
             type="file"
