@@ -20,7 +20,15 @@ client = OpenAI(
 app = Flask(__name__)
 CORS(app)
 
+from flask import send_file
 
+@app.route("/download-feedback", methods=["GET"])
+def download_feedback():
+    try:
+        return send_file("feedback.jsonl", as_attachment=True)
+    except FileNotFoundError:
+        return jsonify({"error": "No feedback found yet."}), 404
+    
 @app.route("/submit-feedback", methods=["POST"])
 def submit_feedback():
     data = request.get_json()
