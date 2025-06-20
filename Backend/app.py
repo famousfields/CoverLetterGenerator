@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import openai 
+import datetime
+import json
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
@@ -17,6 +19,26 @@ client = OpenAI(
 
 app = Flask(__name__)
 CORS(app)
+
+
+@app.route("/submit-feedback", methods=["POST"])
+def submit_feedback():
+    data = request.get_json()
+    rating = data.get("rating")
+    cover_letter = data.get("cover_letter", "")
+    timestamp = datetime.datetime.now().isoformat()
+
+    feedback_entry = {
+        "timestamp": timestamp,
+        "rating": rating,
+        "cover_letter_snippet": cover_letter[:100]  # Save only the first 100 chars
+    }
+
+    # Append feedback to a local JSONL file
+    with open("feedback.jsonl", "a") as f:
+        f.write(json.dumps(feedback_entry) + "\n")
+
+    return jsonify({"status": "success", "message": "Feedback saved."})
 
 @app.route("/generate", methods=["POST"])#Flask route to post the necessary information to the backend (Resume and Job Desc)
 def generate():
