@@ -8,47 +8,39 @@ Cover Letter Generator is a Python-based tool that creates personalized and prof
 
 💬 Offers tone/style options (e.g., professional, enthusiastic, confident)
 
-🛠️ Simple CLI or script-based usage—no web interface needed
+🛠️ Simple Web Interface
 
-📝 Outputs clean .txt or .docx files ready to submit
+📝 Outputs clean 
 
 🛠️ Technologies Used
 Technology	Purpose
-Python 3	Core language
-OpenAI API (optional)	AI-generated natural language writing (if integrated)
-dotenv	Load API keys or configuration from a .env file
+Python 3	
+OpenAI API
+dotenv	
 argparse / click	Command-line interface options
-docx / rich (optional)	For styled document output
+docx / rich 
 Git	Version control
 
 📦 Installation
 Clone the repository
 
 bash
-Copy
-Edit
 git clone https://github.com/your-username/cover-letter-generator.git
 cd cover-letter-generator
 Set up a virtual environment (recommended)
 
 bash
-Copy
-Edit
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 Install dependencies
 
 bash
-Copy
-Edit
 pip install -r requirements.txt
 (Optional) Set up API Keys
 
 If using GPT-based generation:
 
 bash
-Copy
-Edit
 echo "OPENAI_API_KEY=your_openai_key_here" > .env
 🧠 How It Works
 You run the script with your resume, job title, and job description.
@@ -57,12 +49,13 @@ The script processes the input (or passes it to an AI engine).
 
 A cover letter is generated with the correct structure, tailored content, and a personalized closing.
 
+*** IMPORTANT *** 
+Upon first use during a session, give the backend 30-60 seconds to spin up as a free hosting software was use so it is not always online
+
 ✅ Usage
 Basic command:
 
 bash
-Copy
-Edit
 python generate.py --resume resume.txt --job "Software Engineer" --company "TechCorp" --description job_description.txt
 Optional flags:
 
@@ -74,8 +67,7 @@ Optional flags:
 
 📝 Sample Output
 css
-Copy
-Edit
+
 Dear Hiring Manager at TechCorp,
 
 I am writing to express my interest in the Software Engineer position...
@@ -86,6 +78,7 @@ Thank you for considering my application. I look forward to the opportunity...
 
 Sincerely,  
 Your Name
+
 📌 Tips
 Keep your resume and job descriptions short and relevant.
 
